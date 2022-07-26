@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #2f3334;
+    padding-bottom: 15vh;
 }
 
 .logo {
@@ -22,7 +23,12 @@
     margin-right: 10px;
 }
 
-.flashcard {
+.card {
+    transition: all 0.5s ease-out;
+    transform-style: preserve-3d;
+}
+
+.flashcard, .question-opened {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,10 +42,86 @@
     font-weight: 900;
     font-size: 20px;
     margin-top: 20px;
-    border-radius: 20px
+    border-radius: 20px;
+    transition: all 0.5s ease-out;
+}
+
+.flashcard.true,  .flashcard.backface{
+    display: none;
 }
 
 .flashcard ion-icon{
     font-size: 25px;
     cursor: pointer;
+}
+
+.question-opened {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80vw;
+    min-height: 30vw;
+    height: 100%;
+    background-color: #69b8d4;
+    position: relative;
+}
+
+.question-opened ion-icon {
+    position: absolute;
+    font-size: 28px;
+    right: 23px;
+    bottom: 23px;
+}
+
+.question-opened.false{
+    display: none;
+}
+
+.question.backface {
+    display: none;
+}
+
+.answer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    display: none;
+}
+
+.answer.backface {
+    display: flex;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-top: 2vh;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    text-align: center;
+    border-radius: 20px;
+    padding: 2vw;
+    margin: 0 5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
+.yellow {
+    background-color: rgb(214, 114, 0);
+}
+
+.red {
+    background-color: rgba(233, 40, 40, 0.993);
+}
+
+.green {
+    background-color: rgb(27, 143, 27);
 }

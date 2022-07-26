@@ -1,9 +1,11 @@
+import React from 'react';
 import "./style.css";
 
-export default function Footer() {
+export default function Footer({questionsAnswered}) {
+    console.log()
     return (
         <div className="footer">
-            <p>0/4 CONCLUÍDOS</p>
+            <p>{questionsAnswered}/8 CONCLUÍDOS</p>
         </div>
     )
 }
