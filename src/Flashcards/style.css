@@ -23,11 +23,6 @@
     margin-right: 10px;
 }
 
-.card {
-    transition: all 0.5s ease-out;
-    transform-style: preserve-3d;
-}
-
 .flashcard, .question-opened {
     display: flex;
     justify-content: space-between;
@@ -43,11 +38,11 @@
     font-size: 20px;
     margin-top: 20px;
     border-radius: 20px;
-    transition: all 0.5s ease-out;
 }
 
 .flashcard.true,  .flashcard.backface{
     display: none;
+    transform: translateX(180deg);
 }
 
 .flashcard ion-icon{
@@ -63,6 +58,7 @@
     height: 100%;
     background-color: #69b8d4;
     position: relative;
+    transition: all 0.5s ease-out;
 }
 
 .question-opened ion-icon {
@@ -72,12 +68,19 @@
     bottom: 23px;
 }
 
+.turn {
+    transform:rotateY(180deg);
+}
+
+
 .question-opened.false{
     display: none;
+    transition: all 0.5s ease-out;
 }
 
 .question.backface {
     display: none;
+    transition: all 0.5s ease-out;
 }
 
 .answer {
@@ -87,10 +90,12 @@
     text-align: center;
     width: 100%;
     display: none;
+    transition: all 0.5s ease-out;
 }
 
 .answer.backface {
     display: flex;
+    transition: all 0.5s ease-out;
 }
 
 .icons{
@@ -124,4 +129,20 @@
 
 .green {
     background-color: rgb(27, 143, 27);
+}
+
+.answered {
+    text-decoration: line-through;
+}
+
+.fontred {
+    color: rgba(233, 40, 40, 0.993);
+}
+
+.fontgreen {
+    color: rgb(27, 143, 27);
+}
+
+.fontyellow {
+    color: rgb(214, 114, 0);
 }

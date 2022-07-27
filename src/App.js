@@ -8,12 +8,13 @@ import Footer from "./Footer/Footer"
 
 
 export default function App () {
-    const [questionsAnswered, setQuestionsAnswered] = React.useState(0)
+    const [questionsAnswered, setQuestionsAnswered] = React.useState(0);
+    const [questionsAnsweredIcon, setQuestionsAnsweredIcon] = React.useState([]);
 
     return (
         <>
-        <Flashcards setQuestionsAnswered={setQuestionsAnswered} questionsAnswered={questionsAnswered} />
-        <Footer questionsAnswered={questionsAnswered}/>
+        <Flashcards setQuestionsAnswered={setQuestionsAnswered} questionsAnswered={questionsAnswered} questionsAnsweredIcon={questionsAnsweredIcon} setQuestionsAnsweredIcon={setQuestionsAnsweredIcon}/>
+        <Footer questionsAnswered={questionsAnswered} questionsAnsweredIcon={questionsAnsweredIcon}/>
         </>
     )
 }

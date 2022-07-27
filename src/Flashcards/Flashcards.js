@@ -55,27 +55,38 @@ let deck = [
     },
 ]
 
-export default function Flashcards({setQuestionsAnswered, questionsAnswered}) {
-    function Flashcard({ question, answer, index }) {
-        const [opened, setOpened] = React.useState(false)
-        return (
-            <div className='card'>
-                <FlashcardsFace index={index} setOpened={setOpened} opened={opened}/>
-                <FlashcardsOpened question={question} setOpened={setOpened} answer={answer} opened={opened}/>
-            </div>
-        )
-    }
+function Flashcard({ question, answer, index, setQuestionsAnswered, questionsAnswered, questionsAnsweredIcon, setQuestionsAnsweredIcon}) {
+    const [opened, setOpened] = React.useState(false)
+    const [colorAnwered, setColorAnswered] = React.useState("")
+    const [iconAnswered, setIconAnswered] = React.useState("chevron-forward-circle")
+
+
+    return (
+        <div className='card'>
+            <FlashcardsFace index={index} setOpened={setOpened} opened={opened} colorAnwered={colorAnwered} iconAnswered={iconAnswered}/>
+            <FlashcardsOpened question={question} setOpened={setOpened} answer={answer} opened={opened} 
+            questionsAnswered={questionsAnswered} setQuestionsAnswered={setQuestionsAnswered}  setQuestionsAnsweredIcon={setQuestionsAnsweredIcon} 
+            questionsAnsweredIcon={questionsAnsweredIcon} setColorAnswered={setColorAnswered} setIconAnswered={setIconAnswered}/>
+        </div>
+    )
+}
+
+export default function Flashcards({setQuestionsAnswered, questionsAnswered, questionsAnsweredIcon, setQuestionsAnsweredIcon}) {
+
     return (
         <div className="flashcards-page">
             <div className="logo">
-                <img src={icon} />
+                <img src={icon} alt="logo de um raio"/>
                 <h1>FlashCards</h1>
             </div>
             {deck.map((item, index) =>
                 <Flashcard
                     question={item.question}
                     answer={item.answer}
-                    opened={item.opened}
+                    setQuestionsAnswered={setQuestionsAnswered}
+                    questionsAnswered={questionsAnswered}
+                    questionsAnsweredIcon={questionsAnsweredIcon}
+                    setQuestionsAnsweredIcon={setQuestionsAnsweredIcon}
                     index={index}
                     key={index} />
             )}
