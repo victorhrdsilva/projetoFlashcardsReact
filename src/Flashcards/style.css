@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    min-height: 80vh;
     background-color: #2f3334;
     padding-bottom: 15vh;
 }
@@ -19,6 +19,7 @@
 
 .logo img {
     max-height: 60px;
+    transition: transform 0.8s;
     transform: rotateY(180deg);
     margin-right: 10px;
 }
@@ -28,21 +29,25 @@
     justify-content: space-between;
     align-items: center;
     width: 80vw;
-    height: 20vw;
-    padding: 20px;
+    min-height: 20vw;
+    height: 100%;
+    padding: 15px;
     background-color: #42b7e2;
     color: #313638;;
     box-shadow: 0px 7px 7px rgba(58, 27, 196, 0.438);
-    box-sizing: border-box;
     font-weight: 900;
     font-size: 20px;
     margin-top: 20px;
     border-radius: 20px;
 }
 
+.flashcard {
+    transform-style: preserve-3d;
+    transition: all 0.8s ease 2s;
+}
+
 .flashcard.true,  .flashcard.backface{
     display: none;
-    transform: translateX(180deg);
 }
 
 .flashcard ion-icon{
@@ -50,57 +55,71 @@
     cursor: pointer;
 }
 
+.container{
+    perspective: 1000px;
+}
+
 .question-opened {
     flex-direction: row;
     justify-content: space-around;
     width: 80vw;
-    min-height: 30vw;
-    height: 100%;
-    background-color: #69b8d4;
+    min-height: 25vh;
+    margin-top: 20px;
     position: relative;
     transition: all 0.5s ease-out;
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
 }
 
 .question-opened ion-icon {
     position: absolute;
     font-size: 28px;
-    right: 23px;
-    bottom: 23px;
+    right: 25px;
+    bottom: 25px;
+}
+
+.question-opened.true {
+    transition: all 0.5s ease;
+    transform: rotateX(360deg);
 }
 
 .turn {
-    transform:rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.false {
+    transform: rotateY(360deg);
 }
 
 
 .question-opened.false{
     display: none;
-    transition: all 0.5s ease-out;
 }
 
 .question.backface {
     display: none;
-    transition: all 0.5s ease-out;
 }
 
-.answer {
+.answer, .question {
+    transform-style: preserve-3d;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: space-around;
+    height: 100%;
     width: 100%;
-    display: none;
-    transition: all 0.5s ease-out;
-}
-
-.answer.backface {
-    display: flex;
-    transition: all 0.5s ease-out;
+    position: absolute;
+    border-radius: 20px;
+    background-color: #42b7e2;
+    text-align: center;
+    backface-visibility: hidden;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .icons{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 15px;
     margin-top: 2vh;
     flex-wrap: wrap;
@@ -111,10 +130,12 @@
     align-items: center;
     justify-content: center;
     width: 30%;
+    min-width: 90px;
+    min-height: 50px;
     text-align: center;
     border-radius: 20px;
     padding: 2vw;
-    margin: 0 5px;
+    margin: 5px;
     box-sizing: border-box;
     color: #FFFFFF;
 }

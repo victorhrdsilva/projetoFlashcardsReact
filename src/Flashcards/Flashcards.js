@@ -55,6 +55,12 @@ let deck = [
     },
 ]
 
+deck.sort(comparador);
+
+function comparador() {
+    return Math.random() - 0.5;
+}
+
 function Flashcard({ question, answer, index, setQuestionsAnswered, questionsAnswered, questionsAnsweredIcon, setQuestionsAnsweredIcon}) {
     const [opened, setOpened] = React.useState(false)
     const [colorAnwered, setColorAnswered] = React.useState("")
@@ -79,7 +85,9 @@ export default function Flashcards({setQuestionsAnswered, questionsAnswered, que
                 <img src={icon} alt="logo de um raio"/>
                 <h1>FlashCards</h1>
             </div>
-            {deck.map((item, index) =>
+            {deck.map((item, index) => {
+                if(index<4) {
+                    return (
                 <Flashcard
                     question={item.question}
                     answer={item.answer}
@@ -89,7 +97,7 @@ export default function Flashcards({setQuestionsAnswered, questionsAnswered, que
                     setQuestionsAnsweredIcon={setQuestionsAnsweredIcon}
                     index={index}
                     key={index} />
-            )}
+                )}})}
         </div>
     )
 }

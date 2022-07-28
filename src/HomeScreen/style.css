@@ -4,8 +4,9 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: #DEEFE7;
+    background-color: #2f3334;
     padding-bottom: 10vh;
+    box-sizing: border-box;
 }
 
 .home-screen img {
@@ -17,7 +18,7 @@
 .home-screen h1 {
     font-size: 40px;
     font-weight: 900;
-    color: #88bb7c;
+    color: #42b7e2;
     margin-top: 2vh;
 }
 
@@ -27,7 +28,7 @@
     width: 70vw;
     max-width: 400px;
     border: none;
-    background-color: #88bb7c;
+    background-color: #42b7e2;
     color: #FFFFFF;
     font-size: 20px;
     font-weight: 900;
